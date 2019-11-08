@@ -13,7 +13,12 @@ function App() {
       <h1>Todo List</h1>
       <input className="input search" placeholder="Search" type="text" onChange={(event) => {
         if (event.target.value !== "") {
-          const newTasks = [...tasks];
+          let newTasks = [];
+          if (taskSave.length > 0) {
+            newTasks = [...taskSave];
+          } else {
+            newTasks = [...tasks];
+          }
           const tabSearch = newTasks.filter((task) => {
             return (task.name.indexOf(event.target.value) > -1);
           })
