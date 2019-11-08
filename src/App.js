@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [taskSave, setTaskSave] = useState([]);
   const [style, setStyle] = useState({});
   const [taskInput, setTaskInput] = useState("");
   const [placeHolder, setPlaceHolder] = useState("");
@@ -10,6 +11,22 @@ function App() {
   return (
     <div className="App">
       <h1>Todo List</h1>
+      <input className="input search" placeholder="Search" type="text" onChange={(event) => {
+        if (event.target.value !== "") {
+          const newTasks = [...tasks];
+          const tabSearch = newTasks.filter((task) => {
+            return (task.name.indexOf(event.target.value) > -1);
+          })
+          //setTasksSearch(tabSearch);
+          if (taskSave.length === 0)
+            setTaskSave(newTasks);
+          setTasks(tabSearch);
+        } else {
+          const newTasks = [...taskSave];
+          setTasks(newTasks);
+          taskSave.length = 0;
+        }
+      }} />
       <div className="tasklist">
         {
           tasks.map((task, id) => {
@@ -60,6 +77,7 @@ function App() {
         }
         } />
       </form>
+
     </div >
   );
 }
