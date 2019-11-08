@@ -7,11 +7,18 @@
   padding: 0px;
   margin-bottom: 10px;
 }
+h1 {
+  margin-left : 10px;
+  color: #8b8b8b;
+}
 
 h3 {
   margin: 2px;
+  font-weight: 400;
+  color: #8b8b8b;
 }
 span {
+  color: #8b8b8b;
   padding-right: 10px;
 }
 
@@ -19,15 +26,17 @@ span {
   width : 300px;
   margin-left: 10px;
   font-size: 15px;
+  padding: 7px;
 }
 
 .button {
   margin-top: 20px;
   width:150px;
-  height: 20px;
+  height: 30px;
   margin-left:10px;
   background-color: #A643CD;
   color: white;
   border-radius: 5px;
+  font-size: 15px;
   border: none;
 }
