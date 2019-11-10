@@ -69,9 +69,18 @@ function App() {
       </div>
       <form className="form" onSubmit={(event) => {
         event.preventDefault();
-        const newTasks = [...tasks];
-        newTasks.push({ name: taskInput, style: { "textDecoration": "none" } });
-        setTasks(newTasks);
+        if (taskInput !== "") {
+          const newTasks = [...tasks];
+          if (taskSave.length > 0) {
+            console.log("taskSave alimente")
+            const newTasksSave = [...taskSave];
+            newTasksSave.push({ name: taskInput, style: { "textDecoration": "none" } });
+            setTaskSave(newTasksSave);
+          }
+          newTasks.push({ name: taskInput, style: { "textDecoration": "none" } });
+          setTasks(newTasks);
+          setTaskInput("");
+        }
       }}>
         <input className="input" type="text" placeholder="tache" value={placeHolder} onChange={event => {
           setTaskInput(event.target.value);
